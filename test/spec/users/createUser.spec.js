@@ -29,6 +29,8 @@ describe("Create User Kasir Aja", function () {
       });
 
     expect(await response.statusCode).to.eql(201)
+    expect(await response.body.status).to.eql(wording.WORDING_SUCCESS.status)
+    expect(await response.body.message).to.eql(wording.WORDING_SUCCESS.message)
     expect(await response.body.data.name).to.eql(userData.CREATE_USER.name)
 
   })
