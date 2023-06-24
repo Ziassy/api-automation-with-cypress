@@ -4,7 +4,7 @@ const WORDING_FAILED = {
 
 const WORDING_SUCCESS = {
   "status": "success",
-  "message": "User berhasil ditambahkan"
+  "message": "berhasil ditambahkan"
 }
 
 module.exports = {
