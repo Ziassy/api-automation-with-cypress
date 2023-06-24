@@ -8,10 +8,10 @@ const loginData = require("../../../data/loginData")
 const categoryData = require("../../../data/categoryData")
 const wording = require("../../../data/wordingFailed")
 
-
-describe("User create category product", () => {
+describe("User update category product", () => {
   let accessToken;
-  const api_url = "/categories"
+  let categoryId;
+  let api_url; // Declare api_url variable here
 
   before(async () => {
     const response = await request
@@ -21,23 +21,37 @@ describe("User create category product", () => {
     accessToken = response.body.data.accessToken;
   })
 
-  it("Success create category product", async () => {
+  before(async () => {
     const response = await request
-      .post(api_url)
+      .post("/categories")
       .send(categoryData.CREATE_CATEGORY)
       .set({
         "Authorization": `Bearer ${accessToken}`
       });
 
-    expect(await response.statusCode).to.eql(201)
+    categoryId = response.body.data.categoryId;
+    api_url = `/categories/${categoryId}`; // Assign api_url with categoryId value
+  });
+
+  it("Success update category product", async () => {
+    const response = await request
+      .put(api_url)
+      .send(categoryData.UPDATE_CATEGORY)
+      .set({
+        "Authorization": `Bearer ${accessToken}`
+      });
+
+    console.log(await response.body)
+
+    expect(await response.statusCode).to.eql(200)
     expect(await response.body.status).to.eql(wording.WORDING_SUCCESS.status)
-    expect(await response.body.message).to.eql(`Category ${wording.WORDING_SUCCESS.message}`)
-    expect(await response.body.data.name).to.eql(categoryData.CREATE_CATEGORY.name)
+    expect(await response.body.data.name).to.eql(categoryData.UPDATE_CATEGORY.name)
+
   })
 
-  it("Failed create category product when name is empty", async () => {
+  it("Failed update category product when name is empty", async () => {
     const response = await request
-      .post(api_url)
+      .put(api_url)
       .send(categoryData.CREATE_CATEGORY_WITH_EMPTY_NAME_PAYLOAD)
       .set({
         "Authorization": `Bearer ${accessToken}`

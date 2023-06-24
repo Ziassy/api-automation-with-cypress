@@ -8,11 +8,10 @@ const loginData = require("../../../data/loginData")
 const userData = require("../../../data/userData")
 const wording = require("../../../data/wordingFailed")
 
-
-let api_url = "/users"
-
 describe("Create User Kasir Aja", () => {
   let accessToken;
+  const api_url = "/categories"
+
 
   //Get access token login, before create user
   before(async () => {
