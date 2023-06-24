@@ -8,11 +8,11 @@ const loginData = require("../../../data/loginData")
 const categoryData = require("../../../data/categoryData")
 const wording = require("../../../data/wordingFailed")
 
+let api_url = "/categories"
 
 describe("Create category product", () => {
   let accessToken;
 
-  //Get access token login, before create user
   before(async () => {
     const response = await request
       .post('/authentications')
@@ -23,7 +23,7 @@ describe("Create category product", () => {
 
   it("Success create category product", async () => {
     const response = await request
-      .post("/categories")
+      .post(api_url)
       .send(categoryData.CREATE_CATEGORY)
       .set({
         "Authorization": `Bearer ${accessToken}`
@@ -38,7 +38,7 @@ describe("Create category product", () => {
 
   it("Failed create category product when name is empty", async () => {
     const response = await request
-      .post("/categories")
+      .post(api_url)
       .send(categoryData.CREATE_CATEGORY_WITH_EMPTY_NAME_PAYLOAD)
       .set({
         "Authorization": `Bearer ${accessToken}`

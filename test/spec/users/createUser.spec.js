@@ -9,6 +9,8 @@ const userData = require("../../../data/userData")
 const wording = require("../../../data/wordingFailed")
 
 
+let api_url = "/users"
+
 describe("Create User Kasir Aja", () => {
   let accessToken;
 
@@ -23,7 +25,7 @@ describe("Create User Kasir Aja", () => {
 
   it("Success create user Kasir Aja", async () => {
     const response = await request
-      .post("/users")
+      .post(api_url)
       .send(userData.CREATE_USER)
       .set({
         "Authorization": `Bearer ${accessToken}`
@@ -38,7 +40,7 @@ describe("Create User Kasir Aja", () => {
 
   it("Failed create user when name is empty", async () => {
     const response = await request
-      .post("/users")
+      .post(api_url)
       .send(userData.CREATE_USER_WITH_EMPTY_NAME_PAYLOAD)
       .set({
         "Authorization": `Bearer ${accessToken}`
