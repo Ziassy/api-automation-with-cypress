@@ -10,7 +10,7 @@ const wording = require("../../../data/wordingFailed")
 
 describe("Create User Kasir Aja", () => {
   let accessToken;
-  const api_url = "/categories"
+  const api_url = "/users"
 
 
   //Get access token login, before create user

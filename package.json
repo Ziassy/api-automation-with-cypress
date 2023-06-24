@@ -4,7 +4,7 @@
   "description": "Api automation",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "mocha"
   },
   "keywords": [
     "mocha",
