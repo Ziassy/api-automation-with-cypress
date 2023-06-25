@@ -19,7 +19,7 @@ Before run this code, make sure you have already installed :
 - npm install dotenv
 ```
 
-After you install all package, you must create .env in your file and the create variabel
+After you install all package, you must create .env in your file and then create variabel
 
 ```
 BASE_URL=yourAPI
@@ -35,5 +35,5 @@ Here screen record for run the test :
 
 https://drive.google.com/file/d/19PJ1gY125ohMZlQpvoQfE6Btedhy_bAx/view?usp=sharing
 
-*Notes: This repo will updated frequently, i will add more test cases. So stay tuned :)
+*Notes: This repo will updated frequently, I will add more test cases. So stay tuned :)
 
