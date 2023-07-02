@@ -1,5 +1,5 @@
-# API Automation using cypress
-Hello, this is my repo for API automation using cypress, mocha and supertest
+# API Automation using Mocha, Chai, Supertest
+Hello, this is my repo for API automation using Chai, mocha and supertest
 
 I already create API automation for endpoint :
 - Create category product
